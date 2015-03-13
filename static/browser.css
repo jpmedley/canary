@@ -1,0 +1,11 @@
+#infobox {
+  min-height: 30px;
+  min-width: 380px;
+  word-wrap: break-word;
+  float: right;
+} 
+
+iframe.video {
+  display: block;
+  margin: 1em auto 0;
+}

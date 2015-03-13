@@ -1,0 +1,65 @@
+application: google.com:milkbone
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: /favicon\.ico
+  static_files: favicon.ico
+  upload: favicon\.ico
+  
+- url: /(.*\.png)
+  static_files: static/\1
+  upload: static/(.*\.png)
+
+- url: /(.*\.css)
+  static_files: static/\1
+  upload: static/(.*\.css)
+
+- url: /(.*\.html)
+  static_files: static/\1
+  upload: static/(.*\.html)
+  http_headers:
+    Content-Security-Policy: 
+      default-src 'self';  
+      child-src https://www.youtube.com; 
+      connect-src 'self'; font-src http://fonts.gstatic.com;
+      report-uri http://oncomingstorm.dls.corp.google.com:8080/report; 
+      img-src 'self'; media-src https://www.youtube.com; 
+      script-src 'self' 'unsafe-inline'; 
+      style-src 'self' 'unsafe-inline' http://fonts.googleapis.com;
+
+- url: /(.*\.js)
+  static_files: scripts/\1
+  upload: scripts/(.*\.js)
+  http_headers:
+    Content-Type: application/javascript
+
+- url: /(.*\.(jpg|jpeg))
+  static_files: static/\1
+  upload: static/(.*\.(jpg|jpeg))
+  http_headers:
+    Content-Type: image/jpeg
+
+- url: /(.*\.map)
+  static_files: static/\1
+  upload: static/(.*\.map)
+  http_headers:
+    Content-Type: application/json
+
+- url: /(.*\.mp4)
+  static_files: static/\1
+  upload: (.*\.mp4)
+
+- url: .*\.json
+  script: main.app
+  login: optional
+
+- url: .*
+  script: main.app
+  login: optional 
+
+libraries:
+- name: webapp2
+  version: "2.5.2"

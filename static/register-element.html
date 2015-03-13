@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="browser.css">
+  </head>
+  <body>
+    <template id="displaybox">
+      <style>
+        p { color: orange; }
+      </style>
+      <p>I'm in Shadow DOM. My markup was stamped from a &lt;template&gt;.</p>
+    </template>
+    <div id="infobox">
+      <form id="browser-info">
+        <textarea rows="4" cols="50" id="infoList"></textarea>
+      </form>
+    </div>
+
+    <script>
+      function supportsCustomElements() {
+        return 'registerElement' in document;
+      }
+
+      if (supportsCustomElements()) {
+        var proto = Object.create(HTMLElement.prototype, {
+          createdCallback: {
+            value: function() {
+              var t = document.querySelector('#displaybox');
+              var clone = document.importNode(t.content, true);
+              this.createShadowRoot().appendChild(clone);
+            }
+          }
+        });
+        document.registerElement('x-foo-from-template', {prototype: proto});
+      } else {
+        body = document.getElementsByTagName("BODY")[0];
+        var p = document.createElement("p");
+        var message = "Your browser doesn't support registerElement()."
+        var t = document.createTextNode(message);
+        p.appendChild(t);
+        body.appendChild(p);
+      }
+    </script>
+    <x-foo-from-template/>
+    <!-- Content -->
+
+    <script src="browser.js"></script>
+  </body>
+</html>

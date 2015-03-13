@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>reportValidity() Test</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="browser.css">
+  </head>
+  <body>
+    <div id="infobox">
+      <form id="browser-info">
+        <textarea rows="4" cols="50" id="infoList"></textarea>
+      </form>
+    </div>
+    <form id="form-1">
+      <label for="input-1">Test 1</label>
+      <input id="input-1" type="text" required />
+    </form>
+    <script>
+      document.getElementById('input-1').addEventListener('invalid', function() {
+        console.log("input-1 is invalid");
+      }, false);
+      document.getElementById('input-1').addEventListener('blur', function() {
+        console.log("input-1 is blurring");
+        document.getElementById('input-1').reportValidity();
+      }, false);
+    </script>
+    <br/>
+    <form id="form-2">
+      <label for="input-2">Test 2</label>
+      <input id="input-2" type="text" required />
+      <br/>
+      <label for="input-3">Input 3</label>
+      <input id="input-3" type="text" required />
+    </form>
+    <script>
+      document.getElementById('form-2').addEventListener('invalid', function() {
+        console.log("form-2 is invalid");
+      }, false);
+      document.getElementById('form-2').addEventListener('blur', function() {
+        console.log("form-2 is blurring");
+        document.getElementById('form-2').reportValidity();
+      }, false);
+      document.getElementById('input-2').addEventListener('blur', function() {
+        console.log("input-2 is blurring");
+        document.getElementById('input-2').reportValidity();
+      }, false);
+    </script>
+
+    <br/>
+    <form id="form-3">
+    </form>
+    <script>
+      /*document.getElementById('form-1').addEventListener('invalid', function() {
+        console.log("form-1 is invalid");
+      }, false);*/
+
+
+      //document.getElementById('form-1').reportValidity(); 
+      //document.getElementById('input-1').reportValidity();
+
+      //document.getElementById('form-2').reportValidity();
+      //document.getElementById('input-2').reportValidity();
+
+      //document.getElementById('form-3').reportValidity();
+      // document.getElementById('input-3').reportValidity();
+
+      //document.getElementById('form-1').checkValidity();  //true
+      //document.getElementById('input-1').checkValidity(); //true 
+
+    </script>
+    <script src="browser.js"></script>
+  </body>
+</html>
