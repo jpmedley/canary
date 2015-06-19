@@ -27,6 +27,7 @@ handlers:
       connect-src 'self'; font-src http://fonts.gstatic.com;
       report-uri http://oncomingstorm.dls.corp.google.com:8080/report; 
       img-src 'self'; media-src https://www.youtube.com; 
+      manifest-src 'none';
       script-src 'self' 'unsafe-inline'; 
       style-src 'self' 'unsafe-inline' http://fonts.googleapis.com;
 
@@ -53,8 +54,10 @@ handlers:
   upload: (.*\.mp4)
 
 - url: .*\.json
-  script: main.app
-  login: optional
+  static_files: static/\1
+  upload: static/(.*\.json)
+  http_headers:
+    Content-Type: application/javascript
 
 - url: .*
   script: main.app
