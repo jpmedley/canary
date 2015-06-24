@@ -11,7 +11,6 @@ function listProperties(obj) {
 
 function stateListener(e) {
     console.log(e.target.state);
-    listProperties(e.target.state);
 }
 
 function getServiceWorker(registration) {
