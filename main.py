@@ -39,6 +39,10 @@ class MainHandler(RequestHandler):
     logging.info(self.request)
     logging.info(report)
 
+class GitEvents(RequestHandler):
+  def post(self):
+    loging.info(self.request);
+
 class Redirect(RequestHandler):
   def get(self):
     self.response.out.headers['Content-Security-Policy'] = CS_POLICY
