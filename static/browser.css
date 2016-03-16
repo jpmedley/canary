@@ -1,9 +1,13 @@
 #infobox {
-  min-height: 30px;
-  min-width: 380px;
+  min-width: 50%;
   word-wrap: break-word;
   float: right;
 } 
+
+#infobox #infoList {
+	min-height: 150px;
+	min-width: 95%;
+}
 
 iframe.video {
   display: block;

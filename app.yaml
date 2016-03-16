@@ -23,10 +23,10 @@ handlers:
   http_headers:
     Content-Security-Policy: 
       default-src 'self';  
-      child-src https://www.youtube.com; 
+      child-src 'https://www.youtube.com'; 
       connect-src 'self'; font-src http://fonts.gstatic.com;
       report-uri http://oncomingstorm.dls.corp.google.com:8080/report; 
-      img-src 'self'; media-src https://www.youtube.com; 
+      img-src 'self'; media-src 'none'; 
       manifest-src 'none';
       script-src 'self' 'unsafe-inline'; 
       style-src 'self' 'unsafe-inline' http://fonts.googleapis.com;

@@ -12,6 +12,7 @@
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" type="text/css" href="browser.css">
     <script src="browser.js" defer></script>
+    <script src="hack.js"></script>
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,400italic,600,800" rel="stylesheet">
   </head>
   <body>
@@ -24,11 +25,14 @@
     
     <img src="guide.jpg"/>
 
-    <iframe class="video" width="600" height="337" src="https://www.youtube.com/embed/MvKEomoiKBA?rel=0" frameborder="0"></iframe>
+    <!--iframe class="video" width="600" height="337" src="https://www.youtube.com/embed/MvKEomoiKBA?rel=0" frameborder="0"></iframe-->
     <video src="https://www.youtube.com/embed/MvKEomoiKBA?rel=0" autoplay poster="sddefault.jpg">
   Sorry, your browser doesn't support embedded videos, 
   but don't worry, you can <a href="https://www.youtube.com/embed/MvKEomoiKBA?rel=0">download it</a>
   and watch it with your favorite video player!
 </video>
+  <script>
+    Hacks.addVideo();
+  </script>
   </body>
 </html>
