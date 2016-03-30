@@ -39,11 +39,9 @@
                 logText: "A message was just send."
               });
             });
-            listProperties(registration.active);
             navigator.serviceWorker.ready.then(function() {
               console.log("READY!");
             });
-            //listProperties(navigator.serviceWorker.ready);
             console.log("The Button now functions.");
           } else {
             //document.location.reload(false);
