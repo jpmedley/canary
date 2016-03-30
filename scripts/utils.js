@@ -1,14 +1,3 @@
-function listProperties(obj) {
-    console.log(obj.constructor + ":");
-    for(var propName in obj) {
-        if(typeof(obj[propName]) != "undefined") {
-            propVal = obj[propName];
-            // console.log(`  ${propName} = ${propVal}`);
-            console.log("  " + propName + " = " + propVal);
-        }
-    }
-}
-
 function stateListener(e) {
     console.log(e.target.state);
 }
