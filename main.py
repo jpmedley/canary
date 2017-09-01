@@ -34,6 +34,7 @@ class MainHandler(RequestHandler):
     self.response.write('<p><a href="basic-message.html">Basic ServiceWorker Message</a></p>')
     self.response.write('<p><a href="service-worker-best-practice.html">Service Worker Best Practice</a></p>')
     self.response.write('<p><a href="scripttest.html">Script Test</a></p>')
+    self.response.write('<p><a href="async-await.html">async/await</a></p>')
     self.response.write('</body></html>')
     report = self.request.get('Reaction')
     logging.info(self.request)

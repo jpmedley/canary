@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- Add a title that identifies the feature this page demonstrates. -->
+    <!--   Where possible, it should be the name of the feature. For example if
+           demonstrated feature a DOM method called giberish(), the title of the
+           page should be 'giberish()'.
+    -->
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="browser.css">
+    <script src="browser.js" defer></script>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,400italic,600,800|Source+Code+Pro" rel="stylesheet">
+  </head>
+  <body>
+    <h1>Title</h1>
+    <div id="infobox">
+      <form id="browser-info">
+        <textarea rows="15" cols="50" id="infoList"></textarea>
+      </form>
+    </div>
+
+    <script>
+async function showStuff(stuff) {
+  const post = fetch('post.html');
+  const comments = fetch('comments.html');
+  // setPost(await post);
+  // setComments(await comments);
+  setPost(post);
+  // setComments(comments);
+}
+
+function setPost(post) {
+  console.log("test");
+  console.log(post instanceof Promise);
+  // For no reason I can find this throws 'Unexpected identifier'.
+  // Alterations are for the purpose of understanding async/await.
+  var aPost = await post;
+  // aPost.text()
+  // .then(text => {
+  //   console.log(text);
+  // })
+}
+
+function setComments(comments) {
+  comments.text()
+  .then(text => {
+    console.log(text);
+  })
+}
+console.clear();
+console.log("Starting");
+showStuff("Yes");
+    </script>
+  </body>
+</html>
